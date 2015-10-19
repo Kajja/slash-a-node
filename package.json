@@ -1,0 +1,19 @@
+{
+  "name": "slashA",
+  "version": "0.1.0",
+  "description": "SlashA interpreter for Node.js",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "SlashA",
+    "GP",
+    "EP"
+  ],
+  "author": "Mikael Feuk",
+  "license": "ISC"
+}
