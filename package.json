@@ -1,19 +1,23 @@
 {
-  "name": "slashA",
+  "name": "slash-a-node",
   "version": "0.1.0",
-  "description": "SlashA interpreter for Node.js",
+  "description": "Slash'//A interpreter for Node.js",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
+  "author": "Mikael Feuk",
+  "license": "ISC",
   "keywords": [
-    "SlashA",
+    "Slash'//A",
     "GP",
     "EP"
   ],
-  "author": "Mikael Feuk",
-  "license": "ISC"
+  "devDependencies": {
+    "jshint": "^2.8.0",
+    "mocha": "^2.3.3"
+  },
+  "scripts": {
+    "test": "mocha",
+    "lint": "jshint --show-non-errors ./lib",
+    "build": "npm run lint && npm test",
+    "watch": "watch \"npm run build\" ./lib"
+  }
 }
