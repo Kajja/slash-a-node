@@ -6,7 +6,7 @@ This is an implementation of the cool [Slash/A](https://github.com/arturadib/sla
 
 Install
 -------
-With Node.js on your machine, you do:
+With Node.js on your machine, do:
 ```js
 npm install slash-a-node --save
 ```
@@ -50,11 +50,10 @@ execObj.tick(function(counter) {
 
 // Register a callback for the "finished" event 
 execObj.finished(function(output) {
-
     console.log('The output of the execution: ' + output);
 });
 
-// Example x^4 code, from slash/A by Artur B Adib
+// x^4 code, based on example from slash/A by Artur B Adib
 var code = [4, -1, 0, -6, -15, -26, -16];
 
 // x = 2
@@ -68,18 +67,11 @@ interpreter.runBytecode(code, input, execObj);
  *      Number of executed instruction: 2
  *      Number of executed instruction: 3
  *      Number of executed instruction: 4
- *      Number of executed instruction: 5
- *      Number of executed instruction: 6
- *      Number of executed instruction: 7
- *      The output of the execution: 16
+ *      The output of the execution: 
 */
 ```
-This will output:
 
-
-You can register many callbacks for every event. They will be called in the
-order that they were registered. The "tick" and the "finished" events are
-the only supported events.
+You can register many callbacks for every event. They will be called in the order that they were registered. The "tick" and the "finished" events are the only supported events.
 
 
 About the implementation
