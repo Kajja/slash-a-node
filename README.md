@@ -69,6 +69,8 @@ interpreter.runBytecode(code, input, execObj);
  *      The output of the execution: 
 */
 ```
+The primary motivation for the Execution class, was to make it possible to stop an execution based on the number of instructions executed. You could then stop executions that has ended up in an endless loop. You could also, possibly, promote effective code if individuals of the population have a resource that is consumed when instructions in an individual's code is executed. If an individual's resource is used up, the execution can be stopped and the individual expire.
+
 You can register many callbacks for every event. They will be called in the order that they were registered. The "tick" and the "finished" events are the only supported events.
 
 ### Creating test programs
@@ -106,7 +108,6 @@ The interpreter is based on Slash/A's default instruction set (DIS) and accompan
 
 2) Instructions have fixed ids.
 
-3) There is an Execution class. With an object of this type, you can follow and control the execution of the bytecode. The primary motivation for this class, was to make it possible to stop an execution based on the number of instructions executed. You could then stop executions that has ended up in an endless loop. You could also, possibly, promote effective code if individuals of the population have a resource that is consumed when an individual's code is executed. When an individual's resource is used up, the execution can be stopped and the individual expire.
+3) There is an Execution class. With an object of this type, you can follow and control the execution of the bytecode.
 
 4) There is only a Slash/A bytecode interpreter, not any source code interpreter.
-
