@@ -6,10 +6,80 @@ This is an implementation of the cool [Slash/A](https://github.com/arturadib/sla
 
 Install
 -------
-
+With Node.js on your machine, you do:
+```js
+npm install slash-a-node --save
+```
 
 Usage
 -----
+Basic usage:
+```js
+var interpreter = require('slash-a-node').interpreter;
+
+// Example x^4 code, from slash/A by Artur B Adib
+var code = [4, -1, 0, -6, -15, -26, -16];
+
+// x = 2
+var input = [2];
+
+var output = interpreter.runBytecode(code, input);
+
+console.log(output); // => [16]
+```
+
+Using an Execution object:
+```js
+var interpreter = require('slash-a-node').interpreter;
+var Execution = require('slash-a-node').Execution;
+
+// Create a Execution object and register callbacks for events
+var execObj = new Execution();
+
+// Register a callback for "tick" events
+execObj.tick(function(counter) {
+
+    console.log('Number of executed instruction: ' + counter);
+
+    if (counter > 3) {
+
+        // Stop the execution
+        execObj.stop();
+    }
+});
+
+// Register a callback for the "finished" event 
+execObj.finished(function(output) {
+
+    console.log('The output of the execution: ' + output);
+});
+
+// Example x^4 code, from slash/A by Artur B Adib
+var code = [4, -1, 0, -6, -15, -26, -16];
+
+// x = 2
+var input = [2];
+
+interpreter.runBytecode(code, input, execObj);
+
+/**
+ * This will output:
+ *      Number of executed instruction: 1
+ *      Number of executed instruction: 2
+ *      Number of executed instruction: 3
+ *      Number of executed instruction: 4
+ *      Number of executed instruction: 5
+ *      Number of executed instruction: 6
+ *      Number of executed instruction: 7
+ *      The output of the execution: 16
+*/
+```
+This will output:
+
+
+You can register many callbacks for every event. They will be called in the
+order that they were registered. The "tick" and the "finished" events are
+the only supported events.
 
 
 About the implementation

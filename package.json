@@ -1,12 +1,12 @@
 {
   "name": "slash-a-node",
-  "version": "0.1.0",
-  "description": "Slash'//A interpreter for Node.js",
+  "version": "0.1.1",
+  "description": "Slash/A interpreter for Node.js",
   "main": "index.js",
   "author": "Mikael Feuk",
   "license": "ISC",
   "keywords": [
-    "Slash'//A",
+    "Slash/A",
     "GP",
     "EP"
   ],
