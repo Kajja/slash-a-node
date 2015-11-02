@@ -72,7 +72,7 @@ interpreter.runBytecode(code, input, execObj);
 You can register many callbacks for every event. They will be called in the order that they were registered. The "tick" and the "finished" events are the only supported events.
 
 ### Creating test programs
-If you would like to create a test programs, it can be easier to use this method, instead of writing the instruction ids directly as in the example under the "Basic usage":
+If you would like to create a test programs, it can be easier to use this method, instead of writing the instruction ids directly as in the examples above:
 ```js
 var interpreter = require('slash-a-node').interpreter;
 
@@ -100,7 +100,7 @@ console.log(output); // => [16]
 
 About the implementation
 ------------------------
-The interpreter is based on Slash/A's default instruction set (DIS) and accompaning memory structure. Although the base is the same, this Node implementation differs from the original C++ implementation in some areas:
+The interpreter is based on Slash/A's default instruction set (DIS) and accompanying memory structure. Although the base is the same, this Node implementation differs from the original C++ implementation in some areas:
 
 1) The bytecode format differs. The bytecode is made up of integers, but this implementation uses the range -n,...-1 for instructions and 0, ...m for data. That is, a bytecode of -3 corresponds to an instruction and the bytecode 5 is the value 5 that should be placed in the I register (see [Slash/A](https://github.com/arturadib/slash-a) for details about the registers used in the language). You don't need to specify a range for data values to be able to run the interpreter.
 
