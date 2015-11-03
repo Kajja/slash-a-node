@@ -1,7 +1,7 @@
 Slash/A for Node
 ================
 
-This is an implementation of the cool [Slash/A](https://github.com/arturadib/slash-a) language. The language has characteristics that make it suitable for genetic/evolutionary programming. The original interpreter is written in C++.
+This is an implementation of the cool [Slash/A](https://github.com/arturadib/slash-a) language. The language has characteristics that make it suitable for genetic programming / evolutionary programming. The original interpreter is written in C++.
 
 
 Install
@@ -71,7 +71,7 @@ interpreter.runBytecode(code, input, execObj);
 ```
 The primary motivation for the Execution class, was to make it possible to stop an execution based on the number of instructions executed. You could then stop executions that has ended up in an endless loop. You could also, possibly, promote effective code if individuals of the population have a resource that is consumed when instructions in an individual's code is executed. If an individual's resource is used up, the execution can be stopped and the individual expire.
 
-If `runBytecode()` is called asynchronously, an Execution object will let you control the execution and receive the output. 
+If `runBytecode()` is called asynchronously, an Execution object will let you follow and control the execution and receive the output.
 
 You can register many callbacks for every event. They will be called in the order that they were registered. The "tick" and the "finished" events are the only supported events.
 
@@ -108,7 +108,7 @@ The interpreter is based on Slash/A's default instruction set (DIS) and accompan
 
 1) The bytecode format differs. The bytecode is made up of integers, but this implementation uses the range -n,...-1 for instructions and 0, ...m for data. That is, a bytecode of -3 corresponds to an instruction and the bytecode 5 is the value 5 that should be placed in the I register (see [Slash/A](https://github.com/arturadib/slash-a) for details about the registers used in the language). You don't need to specify a range for data values to be able to run the interpreter.
 
-2) Instructions have fixed ids.
+2) Instructions have fixed ids. The interval of ids is [-28, 0], so valid values in a bytecode to be sent to the runBytecode function, are values in the interval [-28, largest JS 32-bit integer]. Actually, a negative integer not matching any instruction id will be ignored, so bytecodes including integers < -28 will not break the execution.
 
 3) There is an Execution class. With an object of this type, you can follow and control the execution of the bytecode.
 
