@@ -71,6 +71,8 @@ interpreter.runBytecode(code, input, execObj);
 ```
 The primary motivation for the Execution class, was to make it possible to stop an execution based on the number of instructions executed. You could then stop executions that has ended up in an endless loop. You could also, possibly, promote effective code if individuals of the population have a resource that is consumed when instructions in an individual's code is executed. If an individual's resource is used up, the execution can be stopped and the individual expire.
 
+If `runBytecode()` is called asynchronously, an Execution object will let you control the execution and receive the output. 
+
 You can register many callbacks for every event. They will be called in the order that they were registered. The "tick" and the "finished" events are the only supported events.
 
 ### Creating test programs
