@@ -1,11 +1,11 @@
 {
   "name": "slash-a-node",
-  "version": "0.1.4",
-  "description": "Slash/A interpreter for Node.js",
+  "version": "0.1.5",
+  "description": "Slash/A interpreter or Node.js",
   "main": "index.js",
   "repository": "git://github.com/Kajja/slash-a-node",
   "author": "Mikael Feuk",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "Slash/A",
     "Genetic programming",

@@ -113,3 +113,7 @@ The interpreter is based on Slash/A's default instruction set (DIS) and accompan
 3) There is an Execution class. With an object of this type, you can follow and control the execution of the bytecode.
 
 4) There is only a Slash/A bytecode interpreter, not any source code interpreter.
+
+License
+-------
+MIT
